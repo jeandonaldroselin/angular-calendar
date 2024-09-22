@@ -2,61 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.31.1](https://github.com/mattlewis92/angular-calendar/compare/v0.31.0...v0.31.1) (2024-04-19)
-
-
-### Bug Fixes
-
-* **week-view:** allDayEventsLabelTemplate rendered outside of container ([#1708](https://github.com/mattlewis92/angular-calendar/issues/1708)) ([46ea34d](https://github.com/mattlewis92/angular-calendar/commit/46ea34d214ec38801b30a398e3759b12a14f989e))
-
-## [0.31.0](https://github.com/mattlewis92/angular-calendar/compare/v0.30.1...v0.31.0) (2022-12-11)
-
-
-### ⚠ BREAKING CHANGES
-
-* angular 15 or higher is now required to use this package
-
-### Features
-
-* **week-view:** add ability to customise document cursor when resizing events ([#1613](https://github.com/mattlewis92/angular-calendar/issues/1613)) ([5135590](https://github.com/mattlewis92/angular-calendar/commit/513559092b61ca11acbbbd8b2d9979dd71a253a7))
-
-
-### build
-
-* upgrade to angular 15 ([71e3318](https://github.com/mattlewis92/angular-calendar/commit/71e33184fd30354453b4818d77b107af66024d24))
-
-### [0.30.1](https://github.com/mattlewis92/angular-calendar/compare/v0.30.0...v0.30.1) (2022-08-15)
-
-
-### Bug Fixes
-
-* add missing SASS entry point ([#1595](https://github.com/mattlewis92/angular-calendar/issues/1595)) ([c83293c](https://github.com/mattlewis92/angular-calendar/commit/c83293c8bea2c27f5b23dd56d76df4063ff7e9de)), closes [#1596](https://github.com/mattlewis92/angular-calendar/issues/1596)
-* restore compatibility with jest 28 ([#1599](https://github.com/mattlewis92/angular-calendar/issues/1599)) ([3cb63e1](https://github.com/mattlewis92/angular-calendar/commit/3cb63e1c4767395a07f504cd915d28fdff006d17))
-
-## [0.30.0](https://github.com/mattlewis92/angular-calendar/compare/v0.29.0...v0.30.0) (2022-08-03)
-
-
-### ⚠ BREAKING CHANGES
-
-* **rtl:** week view all day events with RTL may need some styling adjustments in your application for them to display properly
-* angular 14 or higher is now required to use this package
-* IE11 is no longer supported
-
-### Features
-
-* add secondaryText to event colors that you can use to customise week and day view event text ([6bfbf70](https://github.com/mattlewis92/angular-calendar/commit/6bfbf706688ef33976c61a2e7b716d48a055cceb)), closes [#1375](https://github.com/mattlewis92/angular-calendar/issues/1375)
-* drop support for IE11 ([39b4e76](https://github.com/mattlewis92/angular-calendar/commit/39b4e769d3a268a298d10118ff02f7edc11bea37))
-
-
-### Bug Fixes
-
-* **rtl:** apply styling fixes for non bootstrap 4 layouts ([565a689](https://github.com/mattlewis92/angular-calendar/commit/565a689816bc7804489646d5de7fc409e35e2bbc)), closes [#1583](https://github.com/mattlewis92/angular-calendar/issues/1583)
-
-
-### build
-
-* upgrade to angular 14 ([a496f35](https://github.com/mattlewis92/angular-calendar/commit/a496f3554921829891fa0f9a28632d31bda4ec1c))
-
 ## [0.29.0](https://github.com/mattlewis92/angular-calendar/compare/v0.28.28...v0.29.0) (2021-12-11)
 
 
@@ -64,6 +9,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * angular 12 or higher is now required to use this package
 * if you are implementing your own date adapter you will now need to implement the `getTimezoneOffset` method
+* angular 10 or higher is now required to use this package
 * **week-view:** Previously when resizing events the minimum event height would be calculated based on `hourSegments`, `hourSegmentHeight` and `hourDuration`. It now respects the `minimumEventHeight` input instead.
 
 To restore the old behaviour you will need to set `minimumEventHeight` appropriately (by default it's `30` so should continue to work as expected for most users)
@@ -78,6 +24,7 @@ class CustomMomentDateFormatter extends CalendarMomentDateFormatter {
 
 }
 ```
+* angular 6 and 7 are no longer supported. To use this package you must upgrade to angular 8 or higher.
 * **week-view:** the drag behaviour now mimicks the resize behaviour where you can drag an event down to move it into the next day. To restore the old behaviour you can use the new `validateEventTimesChanged` input to control where an event can be dragged.
 * **week-view:** events on the week and day view will now always be at least 30 pixels high by default. To restore the old behaviour you can set `[minimumEventHeight]="1"`.
 
@@ -85,6 +32,7 @@ class CustomMomentDateFormatter extends CalendarMomentDateFormatter {
 
 * add support for rtl ([caaf96c](https://github.com/mattlewis92/angular-calendar/commit/caaf96c388824801c142a5ad1b844b95273054e3)), closes [#1203](https://github.com/mattlewis92/angular-calendar/issues/1203)
 * allow timezone offset to be overridden in the date adapter ([96726e1](https://github.com/mattlewis92/angular-calendar/commit/96726e12a54011e2845e8839d7514126b1c84803))
+* drop support for angular 6 and 7 ([bc15e03](https://github.com/mattlewis92/angular-calendar/commit/bc15e03459f2b1b5d0c8ef19304d109e4a285a28))
 * publish package in ivy partial compilation mode ([29eb8c9](https://github.com/mattlewis92/angular-calendar/commit/29eb8c902a12c36b138f0eb5301974f9361958d3)), closes [#1536](https://github.com/mattlewis92/angular-calendar/issues/1536)
 * **week-view:** add hourDuration option ([6a72448](https://github.com/mattlewis92/angular-calendar/commit/6a72448b43f77184de6a10cc94dfd7169798c249)), closes [#1080](https://github.com/mattlewis92/angular-calendar/issues/1080)
 * **week-view:** add minimumEventHeight option ([7789fda](https://github.com/mattlewis92/angular-calendar/commit/7789fdaf8d7f48c725e5cc33918f0556e809694e)), closes [#1192](https://github.com/mattlewis92/angular-calendar/issues/1192)
@@ -98,6 +46,10 @@ class CustomMomentDateFormatter extends CalendarMomentDateFormatter {
 * **week-view:** allow dragging events to span multiple days ([ef5749c](https://github.com/mattlewis92/angular-calendar/commit/ef5749cb08c0972679c314cecde099a93f337821)), closes [#1234](https://github.com/mattlewis92/angular-calendar/issues/1234)
 * **week-view:** respect minimumEventHeight input when resizing ([5f0f6be](https://github.com/mattlewis92/angular-calendar/commit/5f0f6beb5494d031d3b3012c649f26940553170b))
 
+
+### build
+
+* upgrade to angular 10 ([0417635](https://github.com/mattlewis92/angular-calendar/commit/0417635e6694a2dafee3e54ed510766608a019cd))
 
 ### [0.28.28](https://github.com/mattlewis92/angular-calendar/compare/v0.28.27...v0.28.28) (2021-09-01)
 
@@ -330,7 +282,7 @@ The `getDayView` and `getDayViewHourGrid` functions have been removed from the `
 
 The following interfaces from `calendar-utils` were renamed: `DayViewHourSegment` -> `WeekViewHourSegment`, `DayViewHour` -> `WeekViewHour`, `DayViewEvent` -> `WeekViewTimeEvent`
 
-The day view scheduler demo is now based off the week view instead, please check the updated demo code for how to migrate: https://mattlewis-github.com/angular-calendar/#/day-view-scheduler
+The day view scheduler demo is now based off the week view instead, please check the updated demo code for how to migrate: https://mattlewis92.github.io/angular-calendar/#/day-view-scheduler
 
 If using a custom template for the `hourSegmentTemplate`, you must pass `let-isTimeLabel="isTimeLabel"` as a local variable and then change `<div class="cal-time">` to `<div class="cal-time" *ngIf="isTimeLabel">`
 * the dist files are no longer annotated for usage with closure compiler.
@@ -865,7 +817,7 @@ If using the mwlDraggable directive anywhere else in your app you will need to a
 * **day-view:** if you were extending the day view component then the internal API has changed slightly and you may need to adjust your app
 * deep module imports angular-calendar/modules/{common,month,week,day} are no longer supported as the package is now treeshakable. To migrate, adjust your imports to be from angular-calendar directly
 * **moment:** the moment weekViewColumnSubHeader format has changed for consistency with the other date formatters
-* there were some minor breaking changes in the drag and drop library that might affect your app if you were using it outside of the calendar. See the changelog for more info: https://github.com/mattlewis92/angular-draggable-droppable/blob/main/CHANGELOG.md
+* there were some minor breaking changes in the drag and drop library that might affect your app if you were using it outside of the calendar. See the changelog for more info: https://github.com/mattlewis92/angular-draggable-droppable/blob/master/CHANGELOG.md
 * **week-view:** events with no end date that are resized now assume to have the start date as the end date
 
 
@@ -1264,7 +1216,7 @@ People using custom day event event templates can also remove these lines from t
 ### BREAKING CHANGES
 
 * **monthView:** the `dayModifier` input has been replaced with a more powerful `beforeViewRender`
-output. See [the demo](https://mattlewis-github.com/angular-calendar/#/before-view-render) for an example of how to migrate your code.
+output. See [the demo](https://mattlewis92.github.io/angular-calendar/#/before-view-render) for an example of how to migrate your code.
 * **dayView:** the `hourSegmentModifier` has been replaced with the `beforeViewRender` output.
 * For system.js users only, the UMD path to the `calendar-utils` module has changed from `calendar-utils/dist/umd/calendarUtils.js` to `calendar-utils/dist/umd/calendar-utils.js`
 * **weekView:** the `allowDragOutside` option has been removed from the week view as this can be implemented in user land. Please see this plunker for how to introduce it yourself: http://plnkr.co/edit/5KyUBC0lnfMsYMcVFAR9?p=preview

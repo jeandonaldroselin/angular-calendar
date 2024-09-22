@@ -4,7 +4,7 @@ exports.adapterFactory = void 0;
 var tslib_1 = require("tslib");
 var moment_1 = require("calendar-utils/date-adapters/moment");
 function adapterFactory(moment) {
-    return tslib_1.__assign(tslib_1.__assign({}, (0, moment_1.adapterFactory)(moment)), { addWeeks: function (date, amount) {
+    return tslib_1.__assign(tslib_1.__assign({}, moment_1.adapterFactory(moment)), { addWeeks: function (date, amount) {
             return moment(date).add(amount, 'weeks').toDate();
         }, addMonths: function (date, amount) {
             return moment(date).add(amount, 'months').toDate();

@@ -12,7 +12,7 @@ var schematics_1 = require("@angular-devkit/schematics");
 function getSourceFile(host, path) {
     var buffer = host.read(path);
     if (!buffer) {
-        throw new schematics_1.SchematicsException("Could not find ".concat(path, "!"));
+        throw new schematics_1.SchematicsException("Could not find " + path + "!");
     }
     var content = buffer.toString();
     var sourceFile = ts.createSourceFile(path, content, ts.ScriptTarget.Latest, true);

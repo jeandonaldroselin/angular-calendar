@@ -7,7 +7,6 @@ var ast_utils_1 = require("@schematics/angular/utility/ast-utils");
 var ng_ast_utils_1 = require("@schematics/angular/utility/ng-ast-utils");
 var ts = require("@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript");
 var file_1 = require("./file");
-var project_main_file_1 = require("./project-main-file");
 /**
  * Import and add module to the root module.
  * @param host {Tree} The source tree.
@@ -16,8 +15,7 @@ var project_main_file_1 = require("./project-main-file");
  * @param project {WorkspaceProject} The workspace project.
  */
 function addModuleImportToRootModule(host, importedModuleName, importedModulePath, project) {
-    var mainPath = (0, project_main_file_1.getProjectMainFile)(project);
-    var appModulePath = (0, ng_ast_utils_1.getAppModulePath)(host, mainPath);
+    var appModulePath = ng_ast_utils_1.getAppModulePath(host, project.architect.build.options.main);
     addModuleImportToModule(host, appModulePath, importedModuleName, importedModulePath);
 }
 exports.addModuleImportToRootModule = addModuleImportToRootModule;
@@ -29,11 +27,11 @@ exports.addModuleImportToRootModule = addModuleImportToRootModule;
  * @param importedModulePath {String} The location of the imported module.
  */
 function addModuleImportToModule(host, moduleToImportIn, importedModuleName, importedModulePath) {
-    var moduleSource = (0, file_1.getSourceFile)(host, moduleToImportIn);
+    var moduleSource = file_1.getSourceFile(host, moduleToImportIn);
     if (!moduleSource) {
-        throw new schematics_1.SchematicsException("Module not found: ".concat(moduleToImportIn));
+        throw new schematics_1.SchematicsException("Module not found: " + moduleToImportIn);
     }
-    var changes = (0, ast_utils_1.addImportToModule)(moduleSource, moduleToImportIn, importedModuleName, importedModulePath);
+    var changes = ast_utils_1.addImportToModule(moduleSource, moduleToImportIn, importedModuleName, importedModulePath);
     var recorder = host.beginUpdate(moduleToImportIn);
     changes
         .filter(function (change) { return change instanceof change_1.InsertChange; })
@@ -41,11 +39,11 @@ function addModuleImportToModule(host, moduleToImportIn, importedModuleName, imp
     host.commitUpdate(recorder);
 }
 function insertAfterImports(source, fileToEdit, toInsert) {
-    var allImports = (0, ast_utils_1.findNodes)(source, ts.SyntaxKind.ImportDeclaration);
-    return (0, ast_utils_1.insertAfterLastOccurrence)(allImports, toInsert, fileToEdit, 0, ts.SyntaxKind.StringLiteral);
+    var allImports = ast_utils_1.findNodes(source, ts.SyntaxKind.ImportDeclaration);
+    return ast_utils_1.insertAfterLastOccurrence(allImports, toInsert, fileToEdit, 0, ts.SyntaxKind.StringLiteral);
 }
 exports.insertAfterImports = insertAfterImports;
 function insertWildcardImport(source, fileToEdit, symbolName, fileName) {
-    return insertAfterImports(source, fileToEdit, ";\nimport * as ".concat(symbolName, " from '").concat(fileName, "'"));
+    return insertAfterImports(source, fileToEdit, ";\nimport * as " + symbolName + " from '" + fileName + "'");
 }
 exports.insertWildcardImport = insertWildcardImport;

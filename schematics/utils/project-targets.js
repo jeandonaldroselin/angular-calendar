@@ -10,9 +10,16 @@ exports.__esModule = true;
 exports.getProjectTargetOptions = void 0;
 /** Resolves the architect options for the build target of the given project. */
 function getProjectTargetOptions(project, buildTarget) {
-    if (project.targets.get(buildTarget)) {
-        return project.targets.get(buildTarget).options;
+    if (project.targets &&
+        project.targets[buildTarget] &&
+        project.targets[buildTarget].options) {
+        return project.targets[buildTarget].options;
     }
-    throw new Error("Cannot determine project target configuration for: ".concat(buildTarget, "."));
+    if (project.architect &&
+        project.architect[buildTarget] &&
+        project.architect[buildTarget].options) {
+        return project.architect[buildTarget].options;
+    }
+    throw new Error("Cannot determine project target configuration for: " + buildTarget + ".");
 }
 exports.getProjectTargetOptions = getProjectTargetOptions;
