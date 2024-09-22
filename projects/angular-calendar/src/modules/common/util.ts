@@ -7,6 +7,8 @@ import {
   ViewPeriod,
   WeekDay,
   WeekViewAllDayEvent,
+  ResourceWeekViewRowColumn,
+  ResourceWeekViewRowEvent,
 } from 'calendar-utils';
 import { DateAdapter } from '../../date-adapters/date-adapter';
 
@@ -69,6 +71,19 @@ export const trackByWeekTimeEvent = (
   index: number,
   weekEvent: WeekViewTimeEvent
 ) => (weekEvent.event.id ? weekEvent.event.id : weekEvent.event);
+
+export const trackByResourceWeekViewRowEvent = (
+  index: number,
+  resourceWeekViewRowEvent: ResourceWeekViewRowEvent
+) =>
+  resourceWeekViewRowEvent.event.id
+    ? resourceWeekViewRowEvent.event.id
+    : resourceWeekViewRowEvent.event;
+
+export const trackByRowColumn = (
+  index: number,
+  column: ResourceWeekViewRowColumn
+) => (column ? column.date.toISOString() : index);
 
 const MINUTES_IN_HOUR = 60;
 

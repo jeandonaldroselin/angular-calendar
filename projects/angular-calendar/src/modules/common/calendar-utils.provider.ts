@@ -9,6 +9,9 @@ import {
   getMonthView,
   getWeekViewHeader,
   getWeekView,
+  getResourceWeekView,
+  ResourceWeekView,
+  GetResourceWeekViewArgs,
 } from 'calendar-utils';
 import { DateAdapter } from '../../date-adapters/date-adapter';
 
@@ -26,5 +29,9 @@ export class CalendarUtils {
 
   getWeekView(args: GetWeekViewArgs): WeekView {
     return getWeekView(this.dateAdapter, args);
+  }
+
+  getResourceWeekView(args: GetResourceWeekViewArgs): ResourceWeekView {
+    return getResourceWeekView(this.dateAdapter, args);
   }
 }

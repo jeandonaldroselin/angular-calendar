@@ -57,6 +57,8 @@ export { CalendarA11yPipe as ɵCalendarA11yPipe } from './calendar-a11y.pipe';
 
 export {
   CalendarEvent,
+  CalendarResource,
+  CalendarResourceIdType,
   EventAction as CalendarEventAction,
   DAYS_OF_WEEK,
   ViewPeriod as CalendarViewPeriod,

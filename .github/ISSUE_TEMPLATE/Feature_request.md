@@ -4,7 +4,6 @@ about: Suggest an idea for this project
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
 <!---
@@ -17,6 +16,8 @@ Need a full list of all API options? Check the docs for each component:
 https://mattlewis92.github.io/angular-calendar/docs/components/CalendarMonthViewComponent.html
 https://mattlewis92.github.io/angular-calendar/docs/components/CalendarWeekViewComponent.html
 https://mattlewis92.github.io/angular-calendar/docs/components/CalendarDayViewComponent.html
+https://mattlewis92.github.io/angular-calendar/docs/components/CalendarResourceWeekViewComponent.html
+https://mattlewis92.github.io/angular-calendar/docs/components/CalendarResourceDayViewComponent.html
 
 Please note that issues that ignore this template will be closed without notice!
 
